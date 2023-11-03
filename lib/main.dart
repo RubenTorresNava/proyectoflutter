@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reporte/Screens/cuenta.dart';
 import 'package:reporte/models/navar.dart';
 
 void main() => runApp(MyApp());
@@ -7,9 +8,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:navar()
+      initialRoute: '/',
+      routes: {
+          '/': (context)=>const navar(),
+          '/cuenta': (context)=>Cuenta(),
+      },
     );
   }
 }

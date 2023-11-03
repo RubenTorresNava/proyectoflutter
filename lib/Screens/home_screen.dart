@@ -18,12 +18,17 @@ class navprincipal extends State<navar> {
       'Cosas por Hacer',
       style: optionStyle,
     ),
+    Text(
+      'Favoritos',
+      style: optionStyle
+    )
   ];
   int titloSelect=0;
   static const List<Widget>titulos=<Widget>[
     Text('Inicio'),
     Text('Lugares'),
     Text('Cosas por Hacer'),
+    Text('Favoritos')
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,9 @@ class navprincipal extends State<navar> {
           IconButton(
             icon: Icon(Icons.account_circle),
             tooltip: "Cuenta",
-            onPressed: (){},
+            onPressed: (){
+              Navigator.of(context).pushNamed('/cuenta');
+            },
           ),
         ],
       ),
@@ -45,7 +52,7 @@ class navprincipal extends State<navar> {
             textoSelect = index;
           });
         },
-        indicatorColor: Colors.amber[800],
+        indicatorColor: Colors.blue,
         selectedIndex:titloSelect,
         destinations: const <Widget>[
           NavigationDestination(
@@ -62,21 +69,62 @@ class navprincipal extends State<navar> {
             icon: Icon(Icons.local_activity_outlined),
             label: 'Actividades',
           ),
+          NavigationDestination(
+              selectedIcon: Icon(Icons.favorite),
+              icon: Icon(Icons.favorite_outline),
+              label: 'Favoritos'
+          )
         ],
       ),
       body: <Widget>[
-        Container(
-            alignment: Alignment.center,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Todos Los lugares a los que vaya aquí se mostrarán"),
-                  Image.asset("assets/mapa.png", height: 40, width: 40,),
-                ],
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              SearchAnchor(
+                builder: (BuildContext context, SearchController controller) {
+                  return SearchBar(
+                    controller: controller,
+                    padding: const MaterialStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 16.0),
+                    ),
+                    onTap: () {
+                      controller.openView();
+                    },
+                    onChanged: (_) {
+                      controller.openView();
+                    },
+                    leading: const Icon(Icons.search),
+                    hintText: "¿A dónde te gustaría ir?",
+                  );
+                },
+                suggestionsBuilder: (BuildContext context, SearchController controller) {
+                  return List<Widget>.generate(5, (int index) {
+                    final String item = 'item $index';
+                    return ListTile(
+                      title: Text(item),
+                      onTap: () {
+                        setState(() {
+                          controller.closeView(item);
+                        });
+                      },
+                    );
+                  });
+                },
               ),
-            )
-
+              Container(
+                padding: const EdgeInsets.only(top: 200),
+                alignment: Alignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Todos los lugares a los que vayas aquí se mostrarán"),
+                    Image.asset("assets/mapa.png", height: 40, width: 40),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         Container(
           //color: Colors.green,
@@ -98,21 +146,6 @@ class navprincipal extends State<navar> {
                       ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  height: 100,
-                  color: Colors.grey[200],
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Ha dónde ir"),
-                      SizedBox(width: 10,),
-                      Image.asset("assets/buscar-ubicacion.png", height: 30, width: 30,)
-                      ],
-                  ),
-                )
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
@@ -140,31 +173,16 @@ class navprincipal extends State<navar> {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Container(
-                height: 100,
-                color: Colors.grey[200],
+                  height: 100,
+                  color: Colors.grey[200],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:[
-                      Text("Recorridos"),
-                      SizedBox(width: 10),
-                      Image.asset("assets/ruta.png", height: 30, width: 30)
+                      Text("Tours"),
+                      SizedBox(width: 10,),
+                      Image.asset("assets/marcador-de-mapa.png", height: 30, width: 30),
                     ],
-                  )
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                    height: 100,
-                    color: Colors.grey[200],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:[
-                        Text("Tours"),
-                        SizedBox(width: 10,),
-                        Image.asset("assets/marcador-de-mapa.png", height: 30, width: 30),
-                      ],
-                    ),
+                  ),
                 ),
               ),
               Padding(
@@ -185,6 +203,9 @@ class navprincipal extends State<navar> {
             ],
           ),
         ),
+        const Center(
+          child: Text("Inicia sesión para ver tus lugares favóritos"),
+        )
       ][titloSelect],
     );
   }
