@@ -7,19 +7,26 @@ class Cuenta extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Datos Personales'),
+        title: const Text('Datos Personales'),
       ),
-      body: const Center(
+      body:  Center(
         child: Column(
           children: [
-            SizedBox(height: 100,),
-            CircleAvatar(
+            const SizedBox(height: 100,),
+            const CircleAvatar(
               maxRadius: 50,
               backgroundColor: Colors.white,
               backgroundImage: AssetImage("assets/usuario.png"),
             ),
-            SizedBox(height: 20,),
-            Text("Ususario invitado"),
+            const SizedBox(height: 20,),
+            const Text("Ususario invitado",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {  },
+                child: const Text("Iniciar sesión")
+            )
           ],
         ),
       ),

@@ -77,8 +77,62 @@ class navprincipal extends State<navar> {
         ],
       ),
       body: <Widget>[
+        Container(
+          padding: const EdgeInsets.only(top: 50),
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                  height: 50,
+                  color: Colors.grey[200],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:[
+                      Text("Lugares en tencencia"),
+                      SizedBox(width: 10,),
+                      Image.asset("assets/marcador-de-mapa.png", height: 30, width: 30),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                    height: 50,
+                    color: Colors.grey[200],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Paquetes de viajes"),
+                        SizedBox(width: 10,),
+                        Image.asset("assets/futbol.png", height: 30, width: 30),
+                      ],
+                    )
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                    height: 50,
+                    color: Colors.grey[200],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Interes"),
+                        SizedBox(width: 10,),
+                        Image.asset("assets/tour-virtual.png", height: 30, width: 30),
+                      ],
+                    )
+                ),
+              ),
+            ],
+          ),
+        ),
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(5),
           child: Column(
             children: [
               SearchAnchor(
@@ -112,54 +166,45 @@ class navprincipal extends State<navar> {
                   });
                 },
               ),
+              SizedBox(height: 10), // Agrega un espacio entre SearchAnchor y el ListView
               Container(
-                padding: const EdgeInsets.only(top: 200),
                 alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Todos los lugares a los que vayas aquí se mostrarán"),
-                    Image.asset("assets/mapa.png", height: 40, width: 40),
+                height: 300,
+                child: ListView(
+                  padding: const EdgeInsets.all(8),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        height: 100,
+                        color: Colors.grey[200],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Lugares que no debes perderte"),
+                            SizedBox(width: 10),
+                            Image.asset("assets/construccion-de-casas.png", width: 30, height: 30),
+                          ],
+                        ),
+                      ),
+                    ),
+                    //SizedBox(height: 10), // Agrega un espacio entre los elementos del ListView
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        height: 100,
+                        color: Colors.grey[200],
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Dónde comer"),
+                            SizedBox(width: 10),
+                            Image.asset("assets/refresco-de-hamburguesa.png", height: 30, width: 30),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          //color: Colors.green,
-          alignment: Alignment.center,
-          child: ListView(
-            padding: const EdgeInsets.all(8),
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  height: 100,
-                  color: Colors.grey[200],
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:[
-                      Text("Lugares que no debes perderte"),
-                      SizedBox(width: 10),
-                      Image.asset("assets/construccion-de-casas.png", width: 30, height: 30)
-                      ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                    height: 100,
-                    color: Colors.grey[200],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:[
-                        Text("Dónde comer"),
-                        SizedBox(width: 10),
-                        Image.asset("assets/refresco-de-hamburguesa.png", height: 30, width: 30,)
-                      ]
-                    )
                 ),
               ),
             ],
@@ -200,12 +245,35 @@ class navprincipal extends State<navar> {
                   )
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                    height: 100,
+                    color: Colors.grey[200],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Puntos de interes"),
+                        SizedBox(width: 10,),
+                        Image.asset("assets/tour-virtual.png", height: 30, width: 30),
+                      ],
+                    )
+                ),
+              ),
             ],
           ),
         ),
-        const Center(
-          child: Text("Inicia sesión para ver tus lugares favóritos"),
-        )
+        Container(
+          padding: const EdgeInsets.only(top: 50),
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Inicia sesion para ver tus lugares favorítos"),
+              Image.asset("assets/estrella-comentario-alt.png", height: 40, width: 40),
+            ],
+          ),
+        ),
       ][titloSelect],
     );
   }
