@@ -5,24 +5,6 @@ class navprincipal extends State<navar> {
   int textoSelect = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> opciones = <Widget>[
-    Text(
-      'Inicio',
-      style: optionStyle,
-    ),
-    Text(
-      'Mis Lugares',
-      style: optionStyle,
-    ),
-    Text(
-      'Cosas por Hacer',
-      style: optionStyle,
-    ),
-    Text(
-      'Favoritos',
-      style: optionStyle
-    )
-  ];
   int titloSelect=0;
   static const List<Widget>titulos=<Widget>[
     Text('Inicio'),
