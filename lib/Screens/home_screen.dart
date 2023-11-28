@@ -52,6 +52,7 @@ class navprincipal extends State<navar> {
           setState(() {
             titloSelect = index;
             textoSelect = index;
+            pantallaIndex = index;
           });
         },
         indicatorColor: Colors.blue,
