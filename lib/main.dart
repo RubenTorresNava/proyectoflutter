@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reporte/Screens/cuenta.dart';
-import 'package:reporte/models/navar.dart';
-
+import 'package:reporte/Screens/screens.dart';
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
