@@ -10,13 +10,13 @@ class Inicio extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(top: 50),
           alignment: Alignment.center,
-          child: Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Container(
-                  height: 50,
+                  height: 100,
                   color: Colors.grey[200],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +31,7 @@ class Inicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Container(
-                    height: 50,
+                    height: 100,
                     color: Colors.grey[200],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +46,7 @@ class Inicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Container(
-                    height: 50,
+                    height: 100,
                     color: Colors.grey[200],
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
