@@ -1,66 +1,44 @@
 import 'package:flutter/material.dart';
 
 class Inicio extends StatelessWidget {
-  const Inicio({super.key});
+  const Inicio({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.only(top: 50),
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  height: 100,
-                  color: Colors.grey[200],
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:[
-                      Text("Lugares en tencencia"),
-                      SizedBox(width: 10,),
-                      Image.asset("assets/marcador-de-mapa.png", height: 30, width: 30),
-                    ],
+      body: Stack(
+        children: [
+          // Fondo con imagen
+          Image.asset(
+            'assets/dgo.jpeg', // Reemplaza 'ruta_de_la_imagen/fondo.jpg' con la ruta real de tu imagen de fondo
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Center(
+            child: Container(
+              width: 300, // Ajusta el ancho según sea necesario
+              height: 300, // Ajusta la altura según sea necesario
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20), // Bordes redondos
+              ),
+              child: const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    '¡Bienvenido a Go Travel Durango!\nEn esta aplicación podrás encontrar lugares para visitar, comer y conocer\nen tu estancia aquí en Durango\n¡Que lo disfrutes!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center, // Alinea el texto al centro
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                    height: 100,
-                    color: Colors.grey[200],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Paquetes de viajes"),
-                        SizedBox(width: 10,),
-                        Image.asset("assets/futbol.png", height: 30, width: 30),
-                      ],
-                    )
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                    height: 100,
-                    color: Colors.grey[200],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Interes"),
-                        SizedBox(width: 10,),
-                        Image.asset("assets/tour-virtual.png", height: 30, width: 30),
-                      ],
-                    )
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

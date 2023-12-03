@@ -1,4 +1,4 @@
-export 'package:reporte/Screens/actividades.dart';
+// export 'package:reporte/Screens/actividades.dart';
 export 'package:reporte/Screens/cuenta.dart';
 export 'package:reporte/Screens/favoritos.dart';
 export 'package:reporte/Screens/inicio.dart';

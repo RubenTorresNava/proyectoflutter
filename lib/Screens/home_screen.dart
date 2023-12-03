@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:reporte/Screens/perfil.dart';
 import 'package:reporte/Screens/screens.dart';
+  
 class navar extends StatefulWidget {
   const navar({super.key});
 
@@ -7,6 +9,7 @@ class navar extends StatefulWidget {
   State<navar> createState() =>
       navprincipal();
 }
+// ignore: camel_case_types
 class navprincipal extends State<navar> {
   int textoSelect = 0;
   static const TextStyle optionStyle =
@@ -15,15 +18,17 @@ class navprincipal extends State<navar> {
   static const List<Widget>titulos=<Widget>[
     Text('Inicio'),
     Text('Lugares'),
-    Text('Cosas por Hacer'),
-    Text('Favoritos')
+    // Text('Cosas por Hacer'),
+    Text('Favoritos'),
+    Text('Cuenta')
   ];
   int pantallaIndex = 0;
   final List<Widget> pantallas = [
-  Inicio(),
-  Lugares(),
-  Actividades(),
-  Favoritos()
+  const Inicio(),
+  const Lugares(),
+  const Favoritos(),
+  const Perfil(),
+  
   ];
 
   void onTabTapped(int index) {
@@ -38,7 +43,7 @@ class navprincipal extends State<navar> {
         title:  titulos.elementAt(titloSelect),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.account_circle),
+            icon: const Icon(Icons.exit_to_app_rounded),
             tooltip: "Cuenta",
             onPressed: (){
               Navigator.of(context).pushNamed('/cuenta');
@@ -55,7 +60,7 @@ class navprincipal extends State<navar> {
             pantallaIndex = index;
           });
         },
-        indicatorColor: Colors.blue,
+        indicatorColor: const Color.fromARGB(255, 40, 243, 33),
         selectedIndex:titloSelect,
         destinations: const <Widget>[
           NavigationDestination(
@@ -68,14 +73,14 @@ class navprincipal extends State<navar> {
             label: 'Lugares',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.local_activity),
-            icon: Icon(Icons.local_activity_outlined),
-            label: 'Actividades',
-          ),
-          NavigationDestination(
               selectedIcon: Icon(Icons.favorite),
               icon: Icon(Icons.favorite_outline),
               label: 'Favoritos'
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.person),
+            label: 'Cuenta',
           )
         ],
       ),
