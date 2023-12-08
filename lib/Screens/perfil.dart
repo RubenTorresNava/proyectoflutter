@@ -75,58 +75,27 @@ class _PerfilState extends State<Perfil> {
                                   // Otros campos de información
                                   SizedBox(height: 16.0),
                                   Center(
-                                    child: Container(
-                                      margin: const EdgeInsets.only(
-                                          bottom: 12.0),
-                                      width: 500,
-                                      child: InkWell(
-                                        onTap: () async {
-                                          ArtDialogResponse response = await ArtSweetAlert.show(
-                                            barrierDismissible: false,
-                                            context: context,
-                                            artDialogArgs: ArtDialogArgs(
-                                              denyButtonText: "Cancel",
-                                              title: "¿Estas segur@",
-                                              text: "que deseas editar tu perfil?",
-                                              confirmButtonText: "Cambiar",
-                                              type: ArtSweetAlertType.warning,
-                                            ),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        if (snapshot.data != null && snapshot.data![index] != null) {
+                                          var userData = snapshot.data![index] as Map<String, dynamic>;
+                                          Navigator.pushNamed(
+                                            context,
+                                            "/actualizar",
+                                            arguments: {
+                                              "uid": userData['uid'] ?? '',
+                                              "nombre": userData['nombre'] ?? '',
+                                              "correo": userData['correo'] ?? '',
+                                              "usuario": userData['usuario'] ?? '',
+                                              "sangre": userData['sangre'] ?? '',
+                                              "telefonoE": userData['telefonoE'] ?? '',
+                                              "alergias": userData['alergias'] ?? ''
+                                            },
                                           );
+                                        }
+                                      },
+                                      child: const Text("Actualizar datos"),
 
-                                          // ignore: unnecessary_null_comparison
-                                          if (response == null) {
-                                            return;
-                                          }
-
-                                          if (response.isTapConfirmButton) {
-                                            // ignore: use_build_context_synchronously
-                                            ArtSweetAlert.show(
-                                              context: context,
-                                              artDialogArgs: ArtDialogArgs(
-                                                type: ArtSweetAlertType.success,
-                                                title: "Perfil Editado!",
-                                              ),
-                                            );
-                                            return;
-                                          }
-                                        },
-                                        child: Container(
-                                          padding: const EdgeInsets.all(12.0),
-                                          decoration: BoxDecoration(
-                                            color: Colors.black,
-                                            // Cambia el color según necesites
-                                            borderRadius: BorderRadius.circular(
-                                                8.0),
-                                          ),
-                                          child: const Text(
-                                            "Editar Perfil",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 16.0),
@@ -199,28 +168,26 @@ class _PerfilState extends State<Perfil> {
       ),
     );
   }
-    Widget _buildInfoRow(String label, String value) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
+
+  Widget _buildInfoRow(String label, String value) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
           ),
-          const SizedBox(width: 8.0),
-          Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(fontSize: 16.0),
-            ),
+        ),
+        const SizedBox(width: 8.0),
+        Expanded(
+          child: Text(
+            value,
+            style: const TextStyle(fontSize: 16.0),
           ),
-        ],
-      );
-    }
+        ),
+      ],
+    );
+  }
 }
-
-
-

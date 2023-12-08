@@ -6,13 +6,17 @@ Future<List<Map<String, dynamic>>> getUsuario() async {
   List<Map<String, dynamic>> usuarios = [];
   QuerySnapshot querySnapshot = await db.collection('usuario').get();
   querySnapshot.docs.forEach((documento) {
+    // Obtener el ID del documento (uid)
+    var uid = documento.id;
+
     Map<String, dynamic> userData = {
+      'uid': uid, // Incluir el identificador único (uid)
       'nombre': documento['nombre'],
       'correo': documento['correo'],
       'usuario': documento['usuario'],
-      'sangre':documento['sangre'],
-      'telefonoE':documento['telefonoE'],
-      'alergias':documento['alergias']
+      'sangre': documento['sangre'],
+      'telefonoE': documento['telefonoE'],
+      'alergias': documento['alergias'],
       // Agrega más campos si es necesario
     };
     usuarios.add(userData);
@@ -20,7 +24,12 @@ Future<List<Map<String, dynamic>>> getUsuario() async {
   return usuarios;
 }
 
-Future<void>agregarUsuario(String nombre, String correo, String usuario, String pass, String sangre, String telefonoE, String alergias) async{
-  await db.collection('usuario').add({"nombre":nombre, "correo":correo, "usuario":usuario, "contraseña":pass, "sangre":sangre, "alergias": alergias, "telefonoE":telefonoE});
+
+
+
+Future<void> actualizarUsuario(String uid, String nombre, String usuario, String correo, String telefonoE, String sangre, String alergias) async {
+  await db.collection("usuario").doc(uid).set({'nombre': nombre, 'usuario':usuario, 'correo':correo, 'telefonoE':telefonoE, 'sangre':sangre, 'alergias':alergias});
 }
+
+
 

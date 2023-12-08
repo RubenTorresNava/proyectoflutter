@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reporte/Screens/home_screen.dart';
-import 'package:reporte/Screens/registro.dart';
+//import 'package:reporte/Screens/actualizar.dart';
 // import 'package:reporte/Screens/inicio.dart';
 //import 'inicio_screen.dart'; // Asegúrate de importar correctamente la pantalla InicioScreen
 
@@ -76,10 +76,8 @@ class Login extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => const  navar()),
                     );
-                  } else {
-                    // Credenciales incorrectas, puedes agregar una alerta o mensaje aquí
-                  }
-                },
+                  } else {}
+                  },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white, // Fondo blanco
                   onPrimary: Colors.black, // Texto negro
@@ -98,10 +96,7 @@ class Login extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const  Registro()),
-                          );
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => const  Registro()),);
                         },
                         child: Text("Registrarse")
                     )

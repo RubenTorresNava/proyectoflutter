@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reporte/Routes/routes.dart';
+import 'package:reporte/Screens/actualizar.dart';
 import 'package:reporte/Screens/login.dart';
 
 //IMPORTACIONES DE FIREBASE
@@ -21,16 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-      // initialRoute: '/',
-      // routes: {
-      //     '/': (context)=>const navar(),
-      //     '/cuenta': (context)=>const Cuenta(),
-      // },
-
-      initialRoute: AppRouter.initialRoute,
-      routes: AppRouter.getAppRouter(),
-      onGenerateRoute: AppRouter.onGenerationRoute,
-      home: const Login(),
+       initialRoute: '/',
+       routes: {
+          '/': (context)=>const Login(),
+           '/actualizar': (context)=>Actualizar(),
+      },
+      //home: const Login(),
 
 
       theme: Tema.TemaApp,
