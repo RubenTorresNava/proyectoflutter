@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "557086055312",
+    "project_id": "proyecti-d802e",
+    "storage_bucket": "proyecti-d802e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557086055312:android:66b6a761fe438dbc1cb115",
+        "android_client_info": {
+          "package_name": "com.example.reporte"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKGfsosEndrJmm-q43O6HFzsOJDUGyHMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

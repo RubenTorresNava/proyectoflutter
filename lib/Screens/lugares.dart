@@ -19,8 +19,8 @@ class _LugaresState extends State<Lugares> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             buildContainer(
               "Lugares para visitar",

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:reporte/Routes/routes.dart';
 import 'package:reporte/Screens/login.dart';
-// import 'package:reporte/Screens/screens.dart';
+
+//IMPORTACIONES DE FIREBASE
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'package:reporte/themes/tema.dart';
-void main() => runApp(const MyApp());
+
+void main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

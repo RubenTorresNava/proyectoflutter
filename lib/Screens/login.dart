@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reporte/Screens/home_screen.dart';
+import 'package:reporte/Screens/registro.dart';
 // import 'package:reporte/Screens/inicio.dart';
 //import 'inicio_screen.dart'; // Asegúrate de importar correctamente la pantalla InicioScreen
 
@@ -88,8 +89,25 @@ class Login extends StatelessWidget {
                 ),
                 child: const Text('Entrar'),
               ),
-
-              
+              Padding(padding: EdgeInsets.all(8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("¿Eres Nuevo?",
+                      style:TextStyle(color: Colors.white)
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const  Registro()),
+                          );
+                        },
+                        child: Text("Registrarse")
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
