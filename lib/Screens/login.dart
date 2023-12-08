@@ -70,7 +70,7 @@ class Login extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Lógica para verificar las credenciales
-                  if (userController.text == 'utd' && passwordController.text == '1234') {
+                  if (userController.text == 'ruben' && passwordController.text == '1234') {
                     // Credenciales correctas, redirige a InicioScreen
                     Navigator.push(
                       context,

@@ -76,10 +76,10 @@ class _PerfilState extends State<Perfil> {
                                   SizedBox(height: 16.0),
                                   Center(
                                     child: ElevatedButton(
-                                      onPressed: () {
+                                      onPressed: () async {
                                         if (snapshot.data != null && snapshot.data![index] != null) {
                                           var userData = snapshot.data![index] as Map<String, dynamic>;
-                                          Navigator.pushNamed(
+                                         await Navigator.pushNamed(
                                             context,
                                             "/actualizar",
                                             arguments: {
